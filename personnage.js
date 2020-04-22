@@ -1,7 +1,7 @@
 // Valeurs Globales constantes
-const SCALE = 1    // Taille du sprite 
-const WIDTH = 50  // Largeur du Sprite
-const HEIGHT = 37   // Hauteur  du Sprite
+const SCALE = 1 // Taille du sprite 
+const WIDTH = 50 // Largeur du Sprite
+const HEIGHT = 37 // Hauteur  du Sprite
 const SCALED_WIDTH = SCALE * WIDTH
 const SCALED_HEIGHT = SCALE * HEIGHT
 const CYCLE_LOOP = [0, 1, 2, 3] // Tableau pour 4 éléements dans le sprite
@@ -42,7 +42,7 @@ let currentDirection = STAND_STILL
 let currentLoopIndex = 0 // à mettre {...}
 let frameCount = 0 // Compte les frames (jusqu'à 12 sur ce code)
 let positionX = 0
-let positionY = canvas.height - HEIGHT
+let positionY = 120
 let img = new Image()
 let vy = 0;
 let vx = 0;
@@ -65,10 +65,11 @@ class Plateform{                        // Orienté objet pour la création de l
 }
 
 let plateforms = []
-plateforms.push(new Plateform(200, 180, 50, 20))
-plateforms.push(new Plateform(300, 140, 50, 20))
-plateforms.push(new Plateform(400, 100, 50, 20))
-plateforms.push(new Plateform(500, 60, 50, 20))
+plateforms.push(new Plateform(0, 161, 269, 83))
+plateforms.push(new Plateform(269, 220, 26, 24))
+plateforms.push(new Plateform(293, 161, 250, 83))
+plateforms.push(new Plateform(0, 395, 269, 60))
+plateforms.push(new Plateform(294, 395, 510, 60))
 
 window.addEventListener('keydown', keyDownListener)
 
