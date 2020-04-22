@@ -1,13 +1,7 @@
 // Valeurs Globales constantes
-<<<<<<< HEAD
 const SCALE = 1    // Taille du sprite 
 const WIDTH = 50  // Largeur du Sprite
 const HEIGHT = 37   // Hauteur  du Sprite
-=======
-const SCALE = 1 // Taille du sprite 
-const WIDTH = 50 // Largeur du Sprite
-const HEIGHT = 37 // Hauteur  du Sprite
->>>>>>> 21c5ab0d38b09c5eb628b145a3821161048ed421
 const SCALED_WIDTH = SCALE * WIDTH
 const SCALED_HEIGHT = SCALE * HEIGHT
 const CYCLE_LOOP = [0, 1, 2, 3] // Tableau pour 4 éléements dans le sprite
@@ -25,7 +19,7 @@ const FACING_DOWN_LEFT = 6
 const FACING_PRIMARY_ATTACK = 7
 const FACING_PRIMARY_ATTACK_LEFT = 8
 const STAND_STILL_LEFT = 9
-const MOVEMENT_SPEED = 1 // Vitesse de déplacement
+const MOVEMENT_SPEED = 2 // Vitesse de déplacement
 const DECAL_CHAR_X = 15
 const CHARWIDTH = 20
 
@@ -56,7 +50,7 @@ let vx = 0;
 /* canvas.width = window.innerWidth;
 canvas.height = window.innerHeight; */
 
-class Plateform{                        // Orienté objet pôur la création de la plateform
+class Plateform{                        // Orienté objet pour la création de la plateform
     constructor(x, y, width, height) {
         this.x = x
         this.y = y
@@ -65,7 +59,7 @@ class Plateform{                        // Orienté objet pôur la création de 
     }
 
     draw() {
-        ctx.fillStyle = "red"
+        ctx.fillStyle = "blue"
         ctx.fillRect(this.x, this.y, this.width, this.height)
     }
 }
