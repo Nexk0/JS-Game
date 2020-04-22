@@ -1,5 +1,5 @@
 // Valeurs Globales constantes
-const SCALE = 1 // Taille du sprite 
+const SCALE = 1 // Taille du sprite
 const WIDTH = 50 // Largeur du Sprite
 const HEIGHT = 37 // Hauteur  du Sprite
 const SCALED_WIDTH = SCALE * WIDTH
@@ -24,14 +24,14 @@ const DECAL_CHAR_X = 15
 const CHARWIDTH = 20
 
 let charX
-let charY 
+let charY
 let lookingLeft = false
 let lookingRight = false
 let frameLimit = 12 // Vitesse de changement entre chaque frame
 let hasAttacked = false
 let primaryAttack = false
 let hasSlided = false // à glisser
-let isSliding = false // Glisse 
+let isSliding = false // Glisse
 let hasJumped = false // à sauter
 let onGround = true;
 let msJump = 0 // Vitesse de saut
@@ -46,6 +46,11 @@ let positionY = 120
 let img = new Image()
 let vy = 0;
 let vx = 0;
+let audioMusic = new Audio()
+audioMusic.loop = true
+audioMusic.volume = 0.3
+audioMusic.src = "./dev/assets/sounds/loop.wav"
+audioMusic.play()
 
 /* canvas.width = window.innerWidth;
 canvas.height = window.innerHeight; */
@@ -105,7 +110,7 @@ document.onclick = function () {
 
 
 function loadImage() {
-    img.src = 'runAnimation.png' // source de l'image 
+    img.src = 'runAnimation.png' // source de l'image
     img.onload = function () {
         window.requestAnimationFrame(gameLoop)
     }
@@ -132,10 +137,10 @@ function gameLoop() { // Fonction principale s'occupe des dessins, animations et
     }
 
     charX = positionX + DECAL_CHAR_X                // Création de la plateform
-    charY = positionY 
+    charY = positionY
     plateforms.forEach(function (plateform){
         plateform.draw()
-    }) 
+    })
 
     let hasMoved = false
 
@@ -151,14 +156,14 @@ function gameLoop() { // Fonction principale s'occupe des dessins, animations et
         currentLoopIndex = 0
         msJump = 0
     }
-    
+
 
     //console.log("")
 
     //console.log(onGround+" "+parseInt(positionY + HEIGHT))
 
     if (onGround) msJump = 0
-    else if (!onGround) { // Ajout de la gravité 
+    else if (!onGround) { // Ajout de la gravité
         /* msJump *= .99 */
         //console.log("test2")
         msJump = Math.floor(msJump*10)/10
@@ -168,7 +173,7 @@ function gameLoop() { // Fonction principale s'occupe des dessins, animations et
     /* vy = msJump;
     vx = 0; */
 
-    // KEYPRESS // 
+    // KEYPRESS //
 
     if (keyPresses.z && !hasJumped && keyPresses.d) { // Empeche de slider après un saut ou un slide de 1.5secondes
         currentLoopIndex = 0
@@ -176,6 +181,9 @@ function gameLoop() { // Fonction principale s'occupe des dessins, animations et
         hasJumped = true
         isSliding = false
         hasSlided = true
+        let jumpSoundRight = new Audio()
+        jumpSoundRight.src = "./dev/assets/sounds/jump.wav"
+        jumpSoundRight.play()
         setTimeout(() => {
             hasSlided = false
         }, 1500);
@@ -186,6 +194,9 @@ function gameLoop() { // Fonction principale s'occupe des dessins, animations et
         isSliding = false
         hasSlided = true
         jumpingLeft = true
+        let jumpSoundLeft = new Audio()
+        jumpSoundLeft.src = "./dev/assets/sounds/jump.wav"
+        jumpSoundLeft.play()
         setTimeout(() => {
             hasSlided = false
         }, 1500);
@@ -208,15 +219,21 @@ function gameLoop() { // Fonction principale s'occupe des dessins, animations et
         lookingRight = true
     }
 
-    if (keyPresses.d && keyPresses.s && !hasSlided && !isSliding) { // Permetde slide vers la droite si le perso ne slide pas et n'a pas déjà slider
+    if (keyPresses.d && keyPresses.s && !hasSlided && !isSliding) { // Permet de slide vers la droite si le perso ne slide pas et n'a pas déjà slider
         moveCharacter(0, 0, FACING_DOWN_RIGHT)
         currentLoopIndex = 0
         isSliding = true
+        let slideSoundRight = new Audio()
+        slideSoundRight.src = "./dev/assets/sounds/slide.wav"
+        slideSoundRight.play()
     } else if (keyPresses.q && keyPresses.s && !hasSlided && !isSliding) {
         moveCharacter(0, 0, FACING_DOWN_LEFT)
         currentLoopIndex = 0
         isSliding = true
         isSlidingLeft = true
+        let slideSoundLeft = new Audio()
+        slideSoundLeft.src = "./dev/assets/sounds/slide.wav"
+        slideSoundLeft.play()
     }
 
 
@@ -228,7 +245,7 @@ function gameLoop() { // Fonction principale s'occupe des dessins, animations et
 
     // CYCLES //
 
-    if (!hasJumped && !isSliding && !primaryAttack) { // Cycle des frames de base 
+    if (!hasJumped && !isSliding && !primaryAttack) { // Cycle des frames de base
         frameCount++
         if (frameCount >= frameLimit) {
             frameCount = 0
@@ -237,10 +254,10 @@ function gameLoop() { // Fonction principale s'occupe des dessins, animations et
                 currentLoopIndex = 0
             }
         }
-    } else if (hasJumped) { // Cycle des frames pour le saut 
+    } else if (hasJumped) { // Cycle des frames pour le saut
         if (lookingRight) {
             currentDirection = FACING_UP_RIGHT
-        } 
+        }
         if (lookingLeft) {
             currentDirection = FACING_UP_LEFT
         }
@@ -252,7 +269,7 @@ function gameLoop() { // Fonction principale s'occupe des dessins, animations et
                 currentLoopIndex = 0
             }
         }
-    } else if (isSliding) { // Cycle des frames pour le slide     
+    } else if (isSliding) { // Cycle des frames pour le slide
         if (lookingRight) {
             if(!checkPlayerCollision(MOVEMENT_SPEED, 0)) moveCharacter(MOVEMENT_SPEED, 0, FACING_DOWN_RIGHT)
             else moveCharacter(0, 0, FACING_DOWN_RIGHT)
@@ -282,7 +299,7 @@ function gameLoop() { // Fonction principale s'occupe des dessins, animations et
         currentDirection = FACING_PRIMARY_ATTACK
         }   else if (lookingLeft) {
             currentDirection = FACING_PRIMARY_ATTACK_LEFT
-        } 
+        }
         if (frameCount >= frameLimit) {
             frameCount = 0
             currentLoopIndex++
@@ -303,7 +320,7 @@ function gameLoop() { // Fonction principale s'occupe des dessins, animations et
             HEIGHT + charY > plateform.y) {
         }
     })  */
-    
+
     if (!hasJumped && !isSliding && !primaryAttack) {
         drawFrame(CYCLE_LOOP[currentLoopIndex], currentDirection, positionX, positionY) // Appelle de Drawframe pour l'affichage des frames de base
     } else if (hasJumped) {
@@ -325,7 +342,7 @@ function checkGround(y) {
     testY = charY + y
     let ground = false
     if(testX < 0 || testX + CHARWIDTH > canvas.width || testY < 0 || testY + HEIGHT > canvas.height) {
-        //if(testY + HEIGHT > canvas.height) 
+        //if(testY + HEIGHT > canvas.height)
         ground = true
     }
     plateforms.forEach(function (plateform){
@@ -333,7 +350,7 @@ function checkGround(y) {
             testX + CHARWIDTH > plateform.x &&
             testY < plateform.y + plateform.height &&
             HEIGHT + testY > plateform.y) {
-                //if(testY + HEIGHT > plateform.y) 
+                //if(testY + HEIGHT > plateform.y)
                 ground = true
         }
     })
@@ -372,10 +389,10 @@ function moveCharacter(deltaX, deltaY, direction) { // Déplacement du personnag
     currentDirection = direction
 }
 
-canvas.addEventListener("mousedown", function(event) { 
-    let rect = canvas.getBoundingClientRect(); 
-        let x = event.clientX - rect.left; 
-        let y = event.clientY - rect.top; 
-        console.log("Coordinate x: " + x,  
-                    "Coordinate y: " + y); 
-}); 
+canvas.addEventListener("mousedown", function(event) {
+    let rect = canvas.getBoundingClientRect();
+        let x = event.clientX - rect.left;
+        let y = event.clientY - rect.top;
+        console.log("Coordinate x: " + x,
+                    "Coordinate y: " + y);
+});
