@@ -59,7 +59,7 @@ class Plateform{                        // Orienté objet pour la création de l
     }
 
     draw() {
-        ctx.fillStyle = "blue"
+        ctx.fillStyle = 'rgba(255, 165, 0, 0)'
         ctx.fillRect(this.x, this.y, this.width, this.height)
     }
 }
