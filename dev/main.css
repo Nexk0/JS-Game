@@ -1,5 +1,5 @@
 body{
-    background-color: grey;
+    background-color: pink;
     margin: 0 auto ;
 }
 
@@ -11,9 +11,13 @@ img{
 
 canvas {
     border: 1px solid black;
-    background: url("./assets/Niveau\ 1.png")
+	display:block;
+	width: 100%;
+	height: 100%; 
+    z-index: 1;
+  }
+
+.bg-1{
+    z-index: -1;
 }
-
-
-
 
