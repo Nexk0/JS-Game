@@ -1,5 +1,5 @@
 // Valeurs Globales constantes
-const SCALE = 1     // Taille du sprite 
+const SCALE = 1    // Taille du sprite 
 const WIDTH = 50  // Largeur du Sprite
 const HEIGHT = 37   // Hauteur  du Sprite
 const SCALED_WIDTH = SCALE * WIDTH
