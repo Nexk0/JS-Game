@@ -1,6 +1,6 @@
 body{
     margin:0 auto;
-    background-image: url('../images/spawn.png') ;
+    background-image: url('../images/Spawn2.1.png') ;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -21,6 +21,8 @@ body{
   cursor: pointer;
   height: 250px;
   width: 250px;
+  margin-bottom: 200px;
+  margin-right: 200px;
 }
 
 .button2{
