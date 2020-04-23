@@ -10,7 +10,24 @@ touches pour jouer: ZQSD, clavier en azerty, pas de touches MAJ ou command.
 
 🦠Des glitchs sont activés, il y a moyen de tricher, à vous de chercher...🦠
 
-We are working
+-1ère Page (Accueil)
+Cliquer sur le texte clignotant en bas
+
+-2ème Page (Spawn)
+Cliquer sur le cerveau, lire le dialogue et appuyer sur le bouton "descendre dans les grottes"
+
+-3ème page (lvl 1)
+Attraper les pièces et accéder a la dernière pièce en bas a gauche
+
+-4ème page (lvl 2)
+Attraper les pièces et accéder a la dernière pièce en bas a gauche
+
+-5ème page (générique)
+Savourez.
+
+
+
+Work details:
 
 20/04/2020
 
