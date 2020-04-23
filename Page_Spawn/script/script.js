@@ -5,6 +5,7 @@ const closeBtn = document.querySelector('.close');
 const modal1 = document.querySelector('#m1');
 const modal2 = document.querySelector('#m2');
 const past = document.querySelector('#passer');
+const click = document.querySelector('.start');
 
 // Events
 modalBtn.addEventListener('click', openModal);
@@ -22,8 +23,12 @@ function passe(){
   modal.style.display='block';
   modal1.style.visibility='hidden';
   modal2.style.visibility='visible';
-  past.style.visibility='hidden';
 }
+// GO --> other page
+document.querySelector(".start").addEventListener("click", function(){
+
+  document.location.href = '../niveau1.html'
+})
 
 // Close
 function closeModal() {
