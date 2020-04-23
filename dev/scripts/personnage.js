@@ -80,6 +80,12 @@ audioMusic.volume = 0.3
 audioMusic.src = "./dev/assets/sounds/loop.wav"
 audioMusic.play()
 
+
+function loadImageFire() {
+    imgFire.src = './dev/assets/Sprites/Fire/Firesheet.png' // source de l'image du feu
+    imgFire.onload = function () {
+    }
+}
 /*
 * Js orientés objet
 */
@@ -213,19 +219,10 @@ function drawFrame(frameX, frameY, canvasX, canvasY) { // Ne pas toucher, foncti
         canvasX, canvasY, SCALED_WIDTH, SCALED_HEIGHT)
 }
 
-
-function loadImageFire() {
-    imgFire.src = './dev/assets/Sprites/Fire/Firesheet.png' // source de l'image du feu
-    imgFire.onload = function () {
-    }
-}
-
 function drawFrameFire(frameX, frameY, canvasX, canvasY) {
-        imgFire.onload = function () {
-        ctx.drawImage(imgFire,
-        frameX * FIRE_WIDTH, frameY * FIRE_HEIGHT, FIRE_WIDTH, FIRE_HEIGHT,
-        canvasX, canvasY, SCALED_WIDTH_FIRE, SCALED_HEIGHT_FIRE)    
-    }
+    ctx.drawImage(imgFire,
+    frameX * FIRE_WIDTH, frameY * FIRE_HEIGHT, FIRE_WIDTH, FIRE_HEIGHT,
+    canvasX, canvasY, SCALED_WIDTH_FIRE, SCALED_HEIGHT_FIRE)     
 }
 
 
