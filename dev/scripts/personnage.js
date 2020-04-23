@@ -63,8 +63,8 @@ let positionY = 134     // Personnage Y du personnage
 let img = new Image()      // Img du main characters
 let imgFire = new Image()      // Img du feu
 let imgGold = new Image()       // Img du gold
-let vy = 0;
-let vx = 0;
+let vy = 0
+let vx = 0
 let audioMusic = new Audio()        // Musique d'ambiance
 audioMusic.loop = true
 audioMusic.volume = 0.3
@@ -125,11 +125,11 @@ fires.push(new Fire(262, 174))
 fires.push(new Fire(262, 405))
 
 let plateforms = []     // Ajout de plateformes
-plateforms.push(new Plateform(0, 171, 269, 73))
-plateforms.push(new Plateform(269, 220, 26, 24))
-plateforms.push(new Plateform(293, 171, 250, 73))
-plateforms.push(new Plateform(0, 405, 269, 60))
-plateforms.push(new Plateform(294, 405, 510, 60))
+plateforms.push(new Plateform(0, 171, 266, 73))
+plateforms.push(new Plateform(265, 220, 30, 24))
+plateforms.push(new Plateform(295, 171, 250, 73))
+plateforms.push(new Plateform(0, 405, 266, 60))
+plateforms.push(new Plateform(296, 405, 510, 60))
 plateforms.push(new Plateform(800, 205, 100, 250))
 plateforms.push(new Plateform(0, 85, 70, 90))
 
@@ -268,8 +268,8 @@ function gameLoop() {               // Fonction principale s'occupe des dessins,
         msJump -= .1
     }
 
-     vy = msJump;
-    vx = 0;
+     vy = msJump
+    vx = 0
 
     // KEYPRESS //
 
@@ -284,7 +284,7 @@ function gameLoop() {               // Fonction principale s'occupe des dessins,
         jumpSoundRight.play()
         setTimeout(() => {
             hasSlided = false
-        }, 1500);
+        }, 1500)
     } else if (keyPresses.z && !hasJumped && keyPresses.q) {
         currentLoopIndex = 0
         msJump = 3.5
@@ -297,7 +297,7 @@ function gameLoop() {               // Fonction principale s'occupe des dessins,
         jumpSoundLeft.play()
         setTimeout(() => {
             hasSlided = false
-        }, 1500);
+        }, 1500)
     }
 
 
@@ -350,7 +350,6 @@ function gameLoop() {               // Fonction principale s'occupe des dessins,
     }
 
     checkGoldCollision(charX, charY)
-
 
     // CYCLES //
 
@@ -442,6 +441,7 @@ function gameLoop() {               // Fonction principale s'occupe des dessins,
         charY = canvas.height - HEIGHT
     }
 
+
     /* plateforms.forEach(function (plateform){                                      // Gestion de la hitbox de la plateform
         if(charX < plateform.x + plateform.width &&
             charX + CHARWIDTH > plateform.x &&
@@ -468,7 +468,6 @@ function gameLoop() {               // Fonction principale s'occupe des dessins,
     golds.forEach(function (gold){      //Permet de dessiner le feu
         if (!gold.pickupGold)
         gold.draw()
-        console.log(gold.pickupGold)
     })
     window.requestAnimationFrame(gameLoop)
     // console.log(currentLoopIndex) // Pour vérifier la valeur actuelle de la frame en cas de problème
