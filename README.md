@@ -1,6 +1,14 @@
 # JS-Game (apparement des problèmes avec certains navigateur, n'hésitez pas a le télécharger pour une expérience de jeu optimale)
 🔨Jeu en js et HTML pour la 3e semaine intensive d'HETIC 🔨
 
+touches pour jouer
+
+|   | |   | Z |   | 
+|-----',--',--',--',--',
+|     | Q | S | D |
+|----,-'-,-'-,-'-,-'-,-'
+
+🖱clic gauche pour attaquer. 🖱
 
 We are working
 
