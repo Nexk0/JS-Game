@@ -5,10 +5,10 @@ body {
     /* Hide elements that flow outside the viewable space */
     overflow: hidden;
     /* Black background for the screen */
-    background: #000;
+    background: url('./images/back.png');
   }
 
-  .star-wars {
+  .generic {
     /* Flexbox to center the entire element on the screen */
     display: flex;
     justify-content: center;
@@ -17,7 +17,7 @@ body {
     /* This sets allows us to transform the text on a 3D plane, and is somewhat a magic number */
     perspective: 400px;
     /* The rest is totally up to personal styling preferences */
-    color: #feda4a;
+    color: #afaafe;
     font-family: 'Pathway Gothic One', sans-serif;
     font-size: 500%;
     font-weight: 600;
