@@ -200,18 +200,6 @@ document.onclick = function () {
 * Fonction des drawimage et loadimage
 */
 
-function loadImageFire() {
-    imgFire.src = './dev/assets/Sprites/Fire/Firesheet.png' // source de l'image du feu
-    imgFire.onload = function () {
-    }
-}
-
-function drawFrameFire(frameX, frameY, canvasX, canvasY) {
-    ctx.drawImage(imgFire,
-    frameX * FIRE_WIDTH, frameY * FIRE_HEIGHT, FIRE_WIDTH, FIRE_HEIGHT,
-    canvasX, canvasY, SCALED_WIDTH_FIRE, SCALED_HEIGHT_FIRE)     
-}
-
 function loadImage() {
     img.src = './dev/assets/Sprites/mainCharacters/mainSprite.png' // source de l'image du personnage principale
     img.onload = function () {
@@ -226,9 +214,25 @@ function drawFrame(frameX, frameY, canvasX, canvasY) { // Ne pas toucher, foncti
 }
 
 
+function loadImageFire() {
+    imgFire.src = './dev/assets/Sprites/Fire/Firesheet.png' // source de l'image du feu
+    imgFire.onload = function () {
+        loadImageGold()
+    }
+}
+
+function drawFrameFire(frameX, frameY, canvasX, canvasY) {
+    ctx.drawImage(imgFire,
+    frameX * FIRE_WIDTH, frameY * FIRE_HEIGHT, FIRE_WIDTH, FIRE_HEIGHT,
+    canvasX, canvasY, SCALED_WIDTH_FIRE, SCALED_HEIGHT_FIRE)     
+}
+
+
+
 function loadImageGold() {
     imgGold.src = './dev/assets/Sprites/Gold/Gold.png' // source de l'image du gold
     imgGold.onload = function () {
+        loadImageNiveauSuivant()
     }
 }
 
@@ -242,6 +246,7 @@ function drawFrameGold(frameX, frameY, canvasX, canvasY) {
 function loadImageNiveauSuivant() {
     imgNv.src = './dev/assets/Sprites/NiveauSuivant/NiveauSuivant.png' // source de l'image du gold
     imgNv.onload = function () {
+    loadImage()
     }
 }
 
@@ -252,10 +257,9 @@ function drawFrameNiveauSuivant(frameX, frameY, canvasX, canvasY) {
         
 }
 
-loadImageNiveauSuivant()
-loadImageGold()
+
 loadImageFire()
-loadImage()
+
 
 function gameLoop() {               // Fonction principale s'occupe des dessins, animations et actions
     ctx.clearRect(0, 0, canvas.width, canvas.height)
