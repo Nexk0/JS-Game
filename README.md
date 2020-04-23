@@ -6,6 +6,10 @@ touches pour jouer: ZQSD, clavier en azerty, pas de touches MAJ ou command.
 
 🖱clic gauche pour attaquer. 🖱
 
+🧠Appuyer sur le cerveau pour avoir le dialogue...🧠
+
+🦠Des glitchs sont activés, il y a moyen de tricher, à vous de chercher...🦠
+
 We are working
 
 20/04/2020
