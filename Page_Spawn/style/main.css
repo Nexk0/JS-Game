@@ -14,15 +14,14 @@ body{
 }
 
 
-
 .button {
   background: black;
   opacity: 0;
   cursor: pointer;
-  height: 250px;
+  height: 300px;
   width: 250px;
   margin-bottom: 200px;
-  margin-right: 200px;
+  margin-right: 20px;
 }
 
 .button2{
@@ -45,6 +44,13 @@ body{
   height: 100%;
 }
 
+.modal1:hover{
+  border: solid 1px green;
+}
+
+.modal2:hover{
+  border: solid 1px green;
+}
 
 .modal1 {
   padding: 10px 20px;
@@ -88,4 +94,21 @@ body{
   color: green;
   text-decoration: none;
   cursor: pointer;
+}
+
+.start{
+  padding:4px;
+	font:bold 13px Arial;
+	background-color :black;
+	color:green;
+	border-radius:2px;
+	width:100px;
+	border:1px solid white;
+  margin-left: 25px;
+}
+
+.start:hover{
+  color: green;
+  border:2px solid green;
+  box-shadow:1px 1px 3px green;
 }
