@@ -93,7 +93,7 @@ class Plateform{                        // Orienté objet pôur la création de 
     }
 
     draw() {
-        ctx.fillStyle = 'rgba(255, 165, 0, 0)'                // Couleurs de la platerformes (invisible ici)
+        ctx.fillStyle = 'red'                // Couleurs de la platerformes (invisible ici)
         ctx.fillRect(this.x, this.y, this.width, this.height)
     }
 }
