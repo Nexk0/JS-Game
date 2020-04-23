@@ -1,8 +1,8 @@
 // Valeurs Globales constantes
-const SCALE = 1 // Taille du sprite 
+const SCALE = 1 // Taille du sprite
 const SCALE_FIRE = 0.3
 const SCALE_GOLD = 1
-const WIDTH = 50 // Largeur du Sprite du personnage principale 
+const WIDTH = 50 // Largeur du Sprite du personnage principale
 const HEIGHT = 37 // Hauteur  du Sprite
 const FIRE_WIDTH = 125 // Largeur du sprite de feu
 const FIRE_HEIGHT = 208 // Hauteur du sprite de feu
@@ -41,14 +41,14 @@ let currentGoldLoopIndex = 0        // Loop index gold
 let frameCountFire = 0          // Comptage de chaque frame du feu
 let currentFireLoopIndex = 0        // Loop index du feu
 let charX
-let charY 
+let charY
 let lookingLeft = false     // Regarde à gauche
 let lookingRight = false       // Regarde à droite
 let frameLimit = 12         // Vitesse de changement entre chaque frame
 let hasAttacked = false         // A attaquer
 let primaryAttack = false       // Attaque de base
 let hasSlided = false // à glisser
-let isSliding = false // Glisse 
+let isSliding = false // Glisse
 let hasJumped = false // à sauter
 let onGround = true     // Est sur le sol
 let msJump = 0 // Vitesse de saut
@@ -94,9 +94,9 @@ class Fire{                 // Orienté objet pôur la création du feu
         this.x = x
         this.y = y
     }
-    draw() { 
-        ctx.fillStyle = 'rgba(255, 165, 0, 0)'  
-        drawFrameFire(CYCLE_LOOP_FIRE[currentFireLoopIndex], 0, this.x, this.y)       
+    draw() {
+        ctx.fillStyle = 'rgba(255, 165, 0, 0)'
+        drawFrameFire(CYCLE_LOOP_FIRE[currentFireLoopIndex], 0, this.x, this.y)
     }
 }
 class Gold{                 // Orienté objet pôur la création des golds
@@ -105,9 +105,9 @@ class Gold{                 // Orienté objet pôur la création des golds
         this.y = y
         this.pickupGold = false
     }
-    draw() { 
-        ctx.fillStyle = 'rgba(255, 165, 0, 0)'  
-        drawFrameGold(CYCLE_LOOP_GOLD[currentGoldLoopIndex], 0, this.x, this.y)       
+    draw() {
+        ctx.fillStyle = 'rgba(255, 165, 0, 0)'
+        drawFrameGold(CYCLE_LOOP_GOLD[currentGoldLoopIndex], 0, this.x, this.y)
     }
 }
 
@@ -116,12 +116,12 @@ class Gold{                 // Orienté objet pôur la création des golds
 */
 
 let golds = []   // Ajout des Golds
-golds.push(new Gold(595, 110))  
-golds.push(new Gold(635, 180)) 
-golds.push(new Gold(685, 240))                     
+golds.push(new Gold(595, 110))
+golds.push(new Gold(635, 180))
+golds.push(new Gold(685, 240))
 
 let fires = []   // Ajout du feu
-fires.push(new Fire(262, 174))                      
+fires.push(new Fire(262, 174))
 fires.push(new Fire(262, 405))
 
 let plateforms = []     // Ajout de plateformes
@@ -157,6 +157,9 @@ document.onclick = function () {
         currentLoopIndex = 0
         primaryAttack = true
         hasAttacked = true
+        let swordSoundRight = new Audio()
+        swordSoundRight.src = "./dev/assets/sounds/sword.wav"
+        swordSoundRight.play()
         setTimeout(() => {
             hasAttacked = false
         }, 700)
@@ -165,6 +168,9 @@ document.onclick = function () {
         currentLoopIndex = 0
         primaryAttack = true
         hasAttacked = true
+        let swordSoundLeft = new Audio()
+        swordSoundLeft.src = "./dev/assets/sounds/sword.wav"
+        swordSoundLeft.play()
         setTimeout(() => {
             hasAttacked = false
         }, 700)
@@ -201,7 +207,7 @@ function drawFrameFire(frameX, frameY, canvasX, canvasY) {
     ctx.drawImage(imgFire,
         frameX * FIRE_WIDTH, frameY * FIRE_HEIGHT, FIRE_WIDTH, FIRE_HEIGHT,
         canvasX, canvasY, SCALED_WIDTH_FIRE, SCALED_HEIGHT_FIRE)
-        
+
 }
 
 
@@ -216,7 +222,7 @@ function drawFrameGold(frameX, frameY, canvasX, canvasY) {
     ctx.drawImage(imgGold,
         frameX * GOLD_WIDTH, frameY * GOLD_HEIGHT, GOLD_WIDTH, GOLD_HEIGHT,
         canvasX, canvasY, SCALED_WIDTH_GOLD, SCALED_HEIGHT_GOLD)
-        
+
 }
 
 
@@ -236,10 +242,10 @@ function gameLoop() {               // Fonction principale s'occupe des dessins,
     }
 
     charX = positionX + DECAL_CHAR_X                // Création de la plateform
-    charY = positionY 
+    charY = positionY
     plateforms.forEach(function (plateform){
         plateform.draw()
-    }) 
+    })
 
     let hasMoved = false
 
@@ -257,15 +263,15 @@ function gameLoop() {               // Fonction principale s'occupe des dessins,
 
 
     if (onGround) msJump = 0
-    else if (!onGround) { 
+    else if (!onGround) {
         msJump = Math.floor(msJump*10)/10
         msJump -= .1
     }
 
      vy = msJump;
-    vx = 0; 
+    vx = 0;
 
-    // KEYPRESS // 
+    // KEYPRESS //
 
     if (keyPresses.z && !hasJumped && keyPresses.d) { // Empeche de slider après un saut ou un slide de 1.5secondes
         currentLoopIndex = 0
@@ -338,14 +344,17 @@ function gameLoop() {               // Fonction principale s'occupe des dessins,
     if (checkFireCollision(charX, charY)) {
         positionX = 60
         positionY = 130
+        let fireSound = new Audio()
+        fireSound.src = "./dev/assets/sounds/fire.wav"
+        fireSound.play()
     }
 
     checkGoldCollision(charX, charY)
-    
+
 
     // CYCLES //
 
-    if (!hasJumped && !isSliding && !primaryAttack) { // Cycle des frames de base 
+    if (!hasJumped && !isSliding && !primaryAttack) { // Cycle des frames de base
         frameCount++
         if (frameCount >= frameLimit) {
             frameCount = 0
@@ -354,10 +363,10 @@ function gameLoop() {               // Fonction principale s'occupe des dessins,
                 currentLoopIndex = 0
             }
         }
-    } else if (hasJumped) { // Cycle des frames pour le saut 
+    } else if (hasJumped) { // Cycle des frames pour le saut
         if (lookingRight) {
             currentDirection = FACING_UP_RIGHT
-        } 
+        }
         if (lookingLeft) {
             currentDirection = FACING_UP_LEFT
         }
@@ -369,7 +378,7 @@ function gameLoop() {               // Fonction principale s'occupe des dessins,
                 currentLoopIndex = 0
             }
         }
-    } else if (isSliding) { // Cycle des frames pour le slide     
+    } else if (isSliding) { // Cycle des frames pour le slide
         if (lookingRight) {
             if(!checkPlayerCollision(MOVEMENT_SPEED, 0)) moveCharacter(MOVEMENT_SPEED, 0, FACING_DOWN_RIGHT)
             else moveCharacter(0, 0, FACING_DOWN_RIGHT)
@@ -399,7 +408,7 @@ function gameLoop() {               // Fonction principale s'occupe des dessins,
         currentDirection = FACING_PRIMARY_ATTACK
         }   else if (lookingLeft) {
             currentDirection = FACING_PRIMARY_ATTACK_LEFT
-        } 
+        }
         if (frameCount >= frameLimit) {
             frameCount = 0
             currentLoopIndex++
@@ -410,8 +419,8 @@ function gameLoop() {               // Fonction principale s'occupe des dessins,
         }
     }
 
-                             
-    frameCountFire++    // Cycle des frames du feu 
+
+    frameCountFire++    // Cycle des frames du feu
     if (frameCountFire >= frameLimit) {
         frameCountFire = 0
         currentFireLoopIndex++
@@ -420,7 +429,7 @@ function gameLoop() {               // Fonction principale s'occupe des dessins,
         }
     }
 
-    frameCountGold++    // Cycle des frames du gold 
+    frameCountGold++    // Cycle des frames du gold
     if (frameCountGold >= frameLimit) {
         frameCountGold = 0
         currentGoldLoopIndex++
@@ -440,7 +449,7 @@ function gameLoop() {               // Fonction principale s'occupe des dessins,
             HEIGHT + charY > plateform.y) {
         }
     })  */
-    
+
     if (!hasJumped && !isSliding && !primaryAttack) {
         drawFrame(CYCLE_LOOP[currentLoopIndex], currentDirection, positionX, positionY) // Appelle de Drawframe pour l'affichage des frames de base
     } else if (hasJumped) {
@@ -452,25 +461,25 @@ function gameLoop() {               // Fonction principale s'occupe des dessins,
     } else if (lookingLeft) {
         drawFrame(CYCLE_LOOP_PRIMARTY_ATTACK_LEFT[currentLoopIndex], currentDirection, positionX, positionY)    // Appelle de Drawframe pour l'affichage des frames d'attaque a gauche'
     }
-    
-    fires.forEach(function (fire){      //Permet de dessiner le feu  
-        fire.draw()  
+
+    fires.forEach(function (fire){      //Permet de dessiner le feu
+        fire.draw()
     })
-    golds.forEach(function (gold){      //Permet de dessiner le feu  
+    golds.forEach(function (gold){      //Permet de dessiner le feu
         if (!gold.pickupGold)
-        gold.draw()  
+        gold.draw()
         console.log(gold.pickupGold)
     })
     window.requestAnimationFrame(gameLoop)
     // console.log(currentLoopIndex) // Pour vérifier la valeur actuelle de la frame en cas de problème
 }
 
-function checkGround(y) {       
+function checkGround(y) {
     testX = charX
     testY = charY + y
     let ground = false
     if(testX < 0 || testX + CHARWIDTH > canvas.width || testY < 0 || testY + HEIGHT > canvas.height) {
-        //if(testY + HEIGHT > canvas.height) 
+        //if(testY + HEIGHT > canvas.height)
         ground = true
     }
     plateforms.forEach(function (plateform){
@@ -478,7 +487,7 @@ function checkGround(y) {
             testX + CHARWIDTH > plateform.x &&
             testY < plateform.y + plateform.height &&
             HEIGHT + testY > plateform.y) {
-                //if(testY + HEIGHT > plateform.y) 
+                //if(testY + HEIGHT > plateform.y)
                 ground = true
         }
     })
