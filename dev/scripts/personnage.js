@@ -213,8 +213,6 @@ function drawFrame(frameX, frameY, canvasX, canvasY) { // Ne pas toucher, foncti
         canvasX, canvasY, SCALED_WIDTH, SCALED_HEIGHT)
 }
 
-    
-let chargeFire = imgFire.complete
 
 function loadImageFire() {
     imgFire.src = './dev/assets/Sprites/Fire/Firesheet.png' // source de l'image du feu
@@ -250,6 +248,7 @@ function loadImageNiveauSuivant() {
 }
 
 function drawFrameNiveauSuivant(frameX, frameY, canvasX, canvasY) {
+    if (imgFire.complete)
     ctx.drawImage(imgNv,
         frameX * NV_WIDTH, frameY * NV_HEIGHT, NV_WIDTH, NV_HEIGHT,
         canvasX, canvasY, SCALED_WIDTH_NV_SUIVANT, SCALED_HEIGHT_NV_SUIVANT)
