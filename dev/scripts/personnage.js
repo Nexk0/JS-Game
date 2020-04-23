@@ -200,20 +200,6 @@ document.onclick = function () {
 * Fonction des drawimage et loadimage
 */
 
-function loadImage() {
-    img.src = './dev/assets/Sprites/mainCharacters/mainSprite.png' // source de l'image du personnage principale
-    img.onload = function () {
-        window.requestAnimationFrame(gameLoop)
-    }
-}
-
-function drawFrame(frameX, frameY, canvasX, canvasY) { // Ne pas toucher, fonction pour afficher le perso
-    ctx.drawImage(img,
-        frameX * WIDTH, frameY * HEIGHT, WIDTH, HEIGHT,
-        canvasX, canvasY, SCALED_WIDTH, SCALED_HEIGHT)
-}
-
-
 function loadImageFire() {
     imgFire.src = './dev/assets/Sprites/Fire/Firesheet.png' // source de l'image du feu
     imgFire.onload = function () {
@@ -226,6 +212,18 @@ function drawFrameFire(frameX, frameY, canvasX, canvasY) {
     canvasX, canvasY, SCALED_WIDTH_FIRE, SCALED_HEIGHT_FIRE)     
 }
 
+function loadImage() {
+    img.src = './dev/assets/Sprites/mainCharacters/mainSprite.png' // source de l'image du personnage principale
+    img.onload = function () {
+        window.requestAnimationFrame(gameLoop)
+    }
+}
+
+function drawFrame(frameX, frameY, canvasX, canvasY) { // Ne pas toucher, fonction pour afficher le perso
+    ctx.drawImage(img,
+        frameX * WIDTH, frameY * HEIGHT, WIDTH, HEIGHT,
+        canvasX, canvasY, SCALED_WIDTH, SCALED_HEIGHT)
+}
 
 
 function loadImageGold() {
