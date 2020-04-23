@@ -1,0 +1,79 @@
+body{
+  margin: 0 auto;
+  background: url('images/back.png');
+  background-size: cover;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+  justify-content: center;
+  align-items: center;
+}
+
+.container{
+  display: flex;
+  justify-content: center;
+}
+
+.logo{
+  position: absolute;
+  z-index: 2;
+}
+
+/*
+
+Animation du Triangle (rotation)
+
+*/
+
+#test {
+  transform-origin: 50% 50%;
+}
+
+@-webkit-keyframes rotating {
+  from{
+      -webkit-transform: rotate(0deg);
+  }
+  to{
+      -webkit-transform: rotate(360deg);
+  }
+}
+
+.triangle {
+  -webkit-animation: rotating 10s linear infinite;
+  position: absolute;
+  z-index: 1;
+}
+/*
+
+Animation du Triangle (rotation) -- FIN
+
+*/
+
+
+/*
+
+Texte Bas Clignotant
+
+*/
+.enter{
+  margin-top: 550px;
+  font-size: 27px;
+  text-align: center;
+}
+
+ .enter a{
+   color: #afaafe;
+   text-decoration: none;
+   font-family: 'Concert One', cursive;
+   animation: Test 2s infinite;
+}
+@keyframes Test{
+    0%{opacity: 1;}
+    50%{opacity: 0;}
+    100%{opacity: 1;}
+}
+ }
+
+ .enter a{
+  text-decoration: none;
+ }
