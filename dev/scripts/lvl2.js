@@ -66,8 +66,8 @@ let keyPresses = {}
 let currentDirection = STAND_STILL      // Current direction de base
 let currentLoopIndex = 0 // à mettre {...}
 let frameCount = 0 // Compte les frames (jusqu'à 12 sur ce code)
-let positionX = 60      // Position X du personnage
-let positionY = 134     // Personnage Y du personnage
+let positionX = 20      // Position X du personnage
+let positionY = 60     // Personnage Y du personnage
 let img = new Image()      // Img du main characters
 let imgFire = new Image()      // Img du feu
 let imgGold = new Image()       // Img du gold
@@ -135,22 +135,31 @@ let niveauSuivants = []
 niveauSuivants.push(new NiveauSuivant(0, 360))
 
 let golds = []   // Ajout des Golds
-golds.push(new Gold(595, 110))  
-golds.push(new Gold(635, 180)) 
-golds.push(new Gold(685, 240))                     
+golds.push(new Gold(660, 110))  
+golds.push(new Gold(680, 180)) 
+golds.push(new Gold(500, 350))                     
 
 let fires = []   // Ajout du feu
-fires.push(new Fire(262, 174))                      
-fires.push(new Fire(262, 405))
+fires.push(new Fire(240, 102))                      
+fires.push(new Fire(262, 102))
+fires.push(new Fire(284, 102))
+fires.push(new Fire(306, 102))
+fires.push(new Fire(398, 102))                      
+fires.push(new Fire(420, 102))
+fires.push(new Fire(438, 102))
+fires.push(new Fire(460, 102))
 
 let plateforms = []     // Ajout de plateformes
-plateforms.push(new Plateform(0, 171, 269, 73))
-plateforms.push(new Plateform(269, 220, 26, 24))
-plateforms.push(new Plateform(293, 171, 250, 73))
-plateforms.push(new Plateform(0, 405, 269, 60))
-plateforms.push(new Plateform(294, 405, 510, 60))
-plateforms.push(new Plateform(800, 205, 100, 250))
-plateforms.push(new Plateform(0, 85, 70, 90))
+plateforms.push(new Plateform(0, 102, 244, 54))
+plateforms.push(new Plateform(244, 146, 251, 15))
+plateforms.push(new Plateform(340, 102, 63, 40))
+plateforms.push(new Plateform(495, 102, 118, 54))
+plateforms.push(new Plateform(0, 254, 187, 54))
+plateforms.push(new Plateform(385, 254, 400, 54))
+plateforms.push(new Plateform(785, 133, 30, 175))
+plateforms.push(new Plateform(0, 392, 570, 54))
+plateforms.push(new Plateform(560, 300, 30, 130))
+
 
 
 
@@ -374,15 +383,15 @@ function gameLoop() {               // Fonction principale s'occupe des dessins,
     }
 
     if (checkFireCollision(charX, charY)) {
-        positionX = 60
-        positionY = 130
+        positionX = 20
+        positionY = 60
         let FireDiedSound = new Audio()
         FireDiedSound.src = "./dev/assets/sounds/fire.wav"
         FireDiedSound.play()
     }
 
     if (checkNvSuivantCollision(charX, charY)){
-        document.location.href = './niveau2.html'
+        document.location.href = './générique/index.html'
     }
 
     checkGoldCollision(charX, charY)
