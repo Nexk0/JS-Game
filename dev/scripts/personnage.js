@@ -176,6 +176,9 @@ document.onclick = function () {
         currentLoopIndex = 0
         primaryAttack = true
         hasAttacked = true
+        let attackRight = new Audio()
+        attackRight.src = "./dev/assets/sounds/sword.wav"
+        attackRight.play()
         setTimeout(() => {
             hasAttacked = false
         }, 700)
@@ -184,6 +187,9 @@ document.onclick = function () {
         currentLoopIndex = 0
         primaryAttack = true
         hasAttacked = true
+        let attackLeft = new Audio()
+        attackLeft.src = "./dev/assets/sounds/sword.wav"
+        attackLeft.play()
         setTimeout(() => {
             hasAttacked = false
         }, 700)
@@ -279,8 +285,8 @@ function gameLoop() {               // Fonction principale s'occupe des dessins,
     if(!hasJumped && checkPlayerCollision(0, 1)) onGround = true
     else onGround = false
     if(!checkPlayerCollision(0,-2) && hasJumped && checkPlayerCollision(0, Math.floor(-msJump))) {
-        console.log(parseInt(positionY+HEIGHT))
-        console.log(parseInt(positionY+HEIGHT))
+        // console.log(parseInt(positionY+HEIGHT))
+        // console.log(parseInt(positionY+HEIGHT))
         //onGround = true
         hasJumped = false
         currentLoopIndex = 0
@@ -370,6 +376,9 @@ function gameLoop() {               // Fonction principale s'occupe des dessins,
     if (checkFireCollision(charX, charY)) {
         positionX = 60
         positionY = 130
+        let FireDiedSound = new Audio()
+        FireDiedSound.src = "./dev/assets/sounds/fire.wav"
+        FireDiedSound.play()
     }
 
     if (checkNvSuivantCollision(charX, charY)){
