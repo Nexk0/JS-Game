@@ -214,7 +214,7 @@ function drawFrame(frameX, frameY, canvasX, canvasY) { // Ne pas toucher, foncti
 }
 
 function loadImageFire() {
-    imgFire.src = await './dev/assets/Sprites/Fire/Firesheet.png' // source de l'image du feu
+    imgFire.src = './dev/assets/Sprites/Fire/Firesheet.png' // source de l'image du feu
     imgFire.onload = function () {
     }
 }
