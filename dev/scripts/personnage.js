@@ -1,9 +1,3 @@
-function loadImageFire() {
-    imgFire.src = './dev/assets/Sprites/Fire/Firesheet.png' // source de l'image du feu
-    imgFire.onload = function () {
-    }
-}
-
 // Valeurs Globales constantes
 const SCALE = 1 // Taille du sprite 
 const SCALE_FIRE = 0.3
@@ -219,7 +213,11 @@ function drawFrame(frameX, frameY, canvasX, canvasY) { // Ne pas toucher, foncti
         canvasX, canvasY, SCALED_WIDTH, SCALED_HEIGHT)
 }
 
-
+function loadImageFire() {
+    imgFire.src = await './dev/assets/Sprites/Fire/Firesheet.png' // source de l'image du feu
+    imgFire.onload = function () {
+    }
+}
 
 function drawFrameFire(frameX, frameY, canvasX, canvasY) {
     ctx.drawImage(imgFire,
