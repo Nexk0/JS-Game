@@ -285,8 +285,8 @@ function gameLoop() {               // Fonction principale s'occupe des dessins,
     if(!hasJumped && checkPlayerCollision(0, 1)) onGround = true
     else onGround = false
     if(!checkPlayerCollision(0,-2) && hasJumped && checkPlayerCollision(0, Math.floor(-msJump))) {
-        console.log(parseInt(positionY+HEIGHT))
-        console.log(parseInt(positionY+HEIGHT))
+        // console.log(parseInt(positionY+HEIGHT))
+        // console.log(parseInt(positionY+HEIGHT))
         //onGround = true
         hasJumped = false
         currentLoopIndex = 0

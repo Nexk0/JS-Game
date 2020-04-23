@@ -1,6 +1,6 @@
 body{
   margin: 0 auto;
-  background: url('images/back.png');
+  background: url('images/back.jpg');
   background-size: cover;
 -webkit-background-size: cover;
 -moz-background-size: cover;
@@ -72,7 +72,7 @@ Texte Bas Clignotant
     50%{opacity: 0;}
     100%{opacity: 1;}
 }
- }
+ 
 
  .enter a{
   text-decoration: none;
