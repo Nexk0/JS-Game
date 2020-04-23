@@ -1,8 +1,0 @@
-body{
-    margin:0 auto;
-    background-image: url('images/spawn.png') ; 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-}

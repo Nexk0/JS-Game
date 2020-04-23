@@ -17,10 +17,4 @@ lets go... 🚧🔋
 
 ♻︎résolutions de bugs avec le player (fix du background aussi)♻︎
 
-23/04/2020
-
-Ajout de nos différentes pages/résolutions de bugs. 
-Création du niveau 2 🚧🔋
-
-🧩headache🧩
 
