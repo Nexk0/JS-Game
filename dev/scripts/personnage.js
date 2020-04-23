@@ -221,9 +221,11 @@ function loadImageFire() {
 }
 
 function drawFrameFire(frameX, frameY, canvasX, canvasY) {
+        imgFire.onload = function () {
         ctx.drawImage(imgFire,
         frameX * FIRE_WIDTH, frameY * FIRE_HEIGHT, FIRE_WIDTH, FIRE_HEIGHT,
         canvasX, canvasY, SCALED_WIDTH_FIRE, SCALED_HEIGHT_FIRE)    
+    }
 }
 
 
