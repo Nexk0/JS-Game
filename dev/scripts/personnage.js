@@ -248,7 +248,6 @@ function loadImageNiveauSuivant() {
 }
 
 function drawFrameNiveauSuivant(frameX, frameY, canvasX, canvasY) {
-    if (imgFire.complete)
     ctx.drawImage(imgNv,
         frameX * NV_WIDTH, frameY * NV_HEIGHT, NV_WIDTH, NV_HEIGHT,
         canvasX, canvasY, SCALED_WIDTH_NV_SUIVANT, SCALED_HEIGHT_NV_SUIVANT)
