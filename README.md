@@ -28,6 +28,7 @@ Detection de Bug : Avec MAJ activé le perso ne bouge pas
                   L'ambiance sonore ne se lance pas
                   Incompatibilité sur Firefox...
 
+Lucas Stankoff a un problème avec son Git, impossible de commit.
 
 23/04/2020
 
@@ -35,6 +36,7 @@ Apparition de nouveaux sons fait maison (épée, mort et saut !)
 ♻︎ Réglage de certain bug ♻︎
 Les pièces font enfin leur apparition.
 Les pages sont reliées entre elles !
+Commit toujours impossible de la part de Lucas tant pis !
 
 Objectif de cette nuit : Terminer le niveau 2.
 
