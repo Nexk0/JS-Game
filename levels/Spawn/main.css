@@ -1,8 +1,89 @@
 body{
     margin:0 auto;
-    background-image: url('./spawn.png') ; 
+    background-image: url('./spawn.png') ;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    font-size: 17px;
+    line-height: 1.6;
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.button {
+  background: black;
+  opacity: 0;
+  cursor: pointer;
+  height: 250px;
+  width: 250px;
+}
+
+.button2{
+  background: rgba(0, 0, 0, 0);
+  border: 0;
+  position: relative;
+  height: 10px;
+  margin-left: 600px;
+  margin-top : 130px;
+}
+
+.button2 :hover {
+  cursor: pointer;
+}
+
+
+.modal {
+  display: none;
+  position: fixed;
+  height: 100%;
+}
+
+
+.modal1 {
+  padding: 10px 20px;
+  background: rgba(0, 0, 0, 0.30);
+  border-radius: 5px;
+  border: solid 1px white;
+  margin-right: 650px;
+  margin-left: 30px;
+  display: flex;
+  color: white;
+  position:absolute;
+}
+
+
+.modal2{
+  padding: 10px 20px;
+  background: rgba(0, 0, 0, 0.30);
+  border-radius: 5px;
+  border: solid 1px white;
+  margin-right: 650px;
+  margin-left: 30px;
+  display: flex;
+  padding-right: 20px;
+  color: white;
+  position: relative;
+  margin-top: -155px;
+}
+
+
+.close {
+  color: white;
+  font-size: 30px;
+  display: flex;
+  margin-top: 28px;
+  margin-left: 630px;
+  margin-right: 630px;
+}
+
+.close:hover,
+.close:focus {
+  color: green;
+  text-decoration: none;
+  cursor: pointer;
 }
