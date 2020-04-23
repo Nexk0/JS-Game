@@ -1,70 +1,74 @@
 body {
-    /* Force the body to fill the entire screen */
-    width: 100%;
-    height: 100%;
-    /* Hide elements that flow outside the viewable space */
-    overflow: hidden;
-    /* Black background for the screen */
-    background: url('./images/back.png');
-  }
+  width: 100%;
+  height: 100%;
+  background: #000;
+  overflow: hidden;
+}
 
-  .generic {
-    /* Flexbox to center the entire element on the screen */
-    display: flex;
-    justify-content: center;
-    /* This is a magic number based on the context in which this snippet is used and effects the perspective */
-    height: 800px;
-    /* This sets allows us to transform the text on a 3D plane, and is somewhat a magic number */
-    perspective: 400px;
-    /* The rest is totally up to personal styling preferences */
-    color: #afaafe;
-    font-family: 'Pathway Gothic One', sans-serif;
-    font-size: 500%;
-    font-weight: 600;
-    letter-spacing: 6px;
-    line-height: 150%;
-    text-align: justify;
-  }
+.fade {
+  position: relative;
+  width: 100%;
+  min-height: 60vh;
+  top: -25px;
+  background-image: linear-gradient(0deg, transparent, black 75%);
+  z-index: 1;
+}
 
-  .crawl {
-    /* Position the element so we can adjust the top property in the animation */
-    position: relative;
-    /* Making sure the text is fully off the screen at the start and end of the animation */
-    top: -100px;
-    /* Defines the skew origin at the very center when we apply transforms on the animation */
-    transform-origin: 50% 100%;
-  }
+.generic {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  height: 800px;
+  color: #afaafe;
+  font-family: 'Pathway Gothic One', sans-serif;
+  font-size: 500%;
+  font-weight: 600;
+  letter-spacing: 6px;
+  line-height: 150%;
+  perspective: 400px;
+  text-align: justify;
+}
 
-  /* We're calling this animation "crawl" */
+.thank p{
+font-size: 38px;;
+}
+
+.generic h2{
+  color: #afaafe;
+  text-align: center;
+}
+
+.generic img{
+display: block;
+margin: 0 auto;
+height: 400px; 
+width: 400px; 
+}
+
+.crawl {
+  position: relative;
+  top: 9999px;
+  transform-origin: 50% 100%;
+  animation: crawl 60s linear;
+}
+
+.crawl > .title {
+  font-size: 90%;
+  text-align: center;
+}
+
+.crawl > .title h1 {
+  margin: 0 0 100px;
+  text-transform: uppercase;
+}
+
 @keyframes crawl {
-    0% {
-      /* The element starts below the screen */
-      top: 0;
-      /* Rotate the text 20 degrees but keep it close to the viewer */
-      transform: rotateX(20deg) translateZ(0);
-    }
-    100% { 
-      /* This is a magic number, but using a big one to make sure the text is fully off the screen at the end */
-      top: -6000px;
-      /* Slightly increasing the rotation at the end and moving the text far away from the viewer */
-      transform: rotateX(25deg) translateZ(-2500px);
-    }
+  0% {
+    top: 0;
+    transform: rotateX(20deg)  translateZ(0);
   }
-
-  .crawl {
-    /* Position the element so we can adjust the top property in the animation */
-    position: relative;
-    /* Defines the skew origin at the very center when we apply transforms on the animation */
-    transform-origin: 50% 100%;
-    /* Adds the crawl animation, which plays for one minute */
-    animation: crawl 60s linear;
+  100% { 
+    top: -6000px;
+    transform: rotateX(25deg) translateZ(-2500px);
   }
-
-  .fade {
-    position: relative;
-    width: 100%;
-    min-height: 60vh;
-    top: -25px;
-    background-image: linear-gradient(0deg, transparent, black 75%);
-    z-index: 1;
-  }
+}
