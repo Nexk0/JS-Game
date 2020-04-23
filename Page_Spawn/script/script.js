@@ -27,7 +27,7 @@ function passe(){
 // GO --> other page
 document.querySelector(".start").addEventListener("click", function(){
 
-  document.location.href = '../niveau1.html'
+  document.location.href = 'niveau1.html'
 })
 
 // Close
