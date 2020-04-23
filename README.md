@@ -41,11 +41,13 @@ Un page d'accueil avec logo style retro arcade est codé.
 La page d'après le spawn ressemble a quelque chose.
 Le lvl 1 est terminé
 Le lvl 2, ... euh quel lvl 2 ?
-Une page de fin est codé (générique)
+Une page de fin est codée (générique)
 
 Tard dans la nuit...
-Le lvl 2 est opérationelle.
+Le lvl 2 est opérationel.
 
 
 
 En vous souhaitant une bonne découverte de notre univers !
+
+(après de multiples tests notre site ne marche pas sur firefox, nou vous conseillons pour une expérience de jeu optimale de télécharger le dossier/ la bande son ne se déclenche pas sur internet)
