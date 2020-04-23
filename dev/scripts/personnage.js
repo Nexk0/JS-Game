@@ -24,7 +24,7 @@ const CYCLE_LOOP_JUMP = [0, 1, 2, 3, 4] // Tableau pour 8 éléements dans le sp
 const CYCLE_LOOP_SLIDE = [0, 1, 2, 3, 4] // Tableau pour 5 éléements dans le sprite
 const CYCLE_LOOP_PRIMARTY_ATTACK = [0, 1, 2, 3, 4, 5, 6, 7] // Tableau pour attaquer à droite
 const CYCLE_LOOP_PRIMARTY_ATTACK_LEFT = [7, 6, 5, 4, 3, 2, 1, 0] // reverse du tableau pour attaquer à gauche
-const CYCLE_LOOP_FIRE = [5, 6, 7, 8, 9] // Tableau pour le cycle du feu
+const CYCLE_LOOP_FIRE = [0, 1, 2, 3, 4] // Tableau pour le cycle du feu
 const CYCLE_LOOP_GOLD = [0, 1, 2, 3, 4, 5, 6, 7, 8] 
 const CYCLE_LOOP_NV = [0, 1, 2, 3, 4, 5, 6, 7, 8] // Tableau pour le cycle des golds
 const FACING_RIGHT = 0 // Choix de la ligne du sprite, chiffre = lien, courir à droite
@@ -213,6 +213,9 @@ function drawFrame(frameX, frameY, canvasX, canvasY) { // Ne pas toucher, foncti
         canvasX, canvasY, SCALED_WIDTH, SCALED_HEIGHT)
 }
 
+    
+let chargeFire = imgFire.complete
+
 function loadImageFire() {
     imgFire.src = './dev/assets/Sprites/Fire/Firesheet.png' // source de l'image du feu
     imgFire.onload = function () {
@@ -220,10 +223,9 @@ function loadImageFire() {
 }
 
 function drawFrameFire(frameX, frameY, canvasX, canvasY) {
-    ctx.drawImage(imgFire,
+        ctx.drawImage(imgFire,
         frameX * FIRE_WIDTH, frameY * FIRE_HEIGHT, FIRE_WIDTH, FIRE_HEIGHT,
-        canvasX, canvasY, SCALED_WIDTH_FIRE, SCALED_HEIGHT_FIRE)
-        
+        canvasX, canvasY, SCALED_WIDTH_FIRE, SCALED_HEIGHT_FIRE)    
 }
 
 
@@ -504,8 +506,9 @@ function gameLoop() {               // Fonction principale s'occupe des dessins,
     } else if (lookingLeft) {
         drawFrame(CYCLE_LOOP_PRIMARTY_ATTACK_LEFT[currentLoopIndex], currentDirection, positionX, positionY)    // Appelle de Drawframe pour l'affichage des frames d'attaque a gauche'
     }
-    
-    fires.forEach(function (fire){      //Permet de dessiner le feu  
+
+  
+    fires.forEach(function (fire){    //Permet de dessiner le feu  
         fire.draw()  
     })
     golds.forEach(function (gold){      //Permet de dessiner le feu  
