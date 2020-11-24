@@ -59,13 +59,13 @@ Notre player se déplace, à une physique cohérente.
 On attaque la modélisation de la map
 
 
-lets go... 🚧🔋
+let's go... 🚧🔋
 
 
 22/04/2020
 
 🔨Création des niveaux/plateformes/mise en place de lave/pics etc...
-Les Assets sont tous designé, en parallèle le premier niveau est en cours de fabrication.
+Les Assets sont tous designés, en parallèle le premier niveau est en cours de fabrication.
 
 ♻︎résolutions de bugs avec le player (fix du background aussi)♻︎
 
@@ -94,4 +94,4 @@ En vous souhaitant une bonne découverte de notre univers !
                                      
 *
 
-(après de multiples tests notre site ne marche pas sur firefox, nou vous conseillons pour une expérience de jeu optimale de télécharger le dossier/ la bande son ne se déclenche pas sur internet)
+(après de multiples tests notre site ne marche pas sur firefox, nous vous conseillons pour une expérience de jeu optimale de télécharger le dossier/ la bande son ne se déclenche pas sur internet)
